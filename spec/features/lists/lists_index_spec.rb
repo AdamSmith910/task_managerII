@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe "the lists index page" do
   before :each do
-    List.create(title: "Bad List", archived: false)
-    List.create(title: "Good List", archived: true)
+    @bad_list = List.create(title: "Bad List")
+    @good_list = List.create(title: "Good List", archived: true)
   end
 
   it "displays a heading 'All Lists'" do
@@ -16,7 +16,7 @@ RSpec.describe "the lists index page" do
     visit "/"
 
     within("#list-title") do
-      expect(page).to have_content("Bad List")
+      expect(page).to have_content(@bad_list.title)
     end
 
     within("#archive-status") do
@@ -28,15 +28,7 @@ RSpec.describe "the lists index page" do
     visit "/"
 
     within("#list-title") do
-      expect(page).to_not have_content("Good List")
+      expect(page).to_not have_content(@good_list.title)
     end
-  end
-
-  it "has an option to create a new list" do
-    visit "/"
-
-    click_link_or_button("Create new list")
-
-    expect(page).to have_content("New List")
   end
 end
