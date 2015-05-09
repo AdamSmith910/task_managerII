@@ -1,5 +1,7 @@
 class ListController < ApplicationController
   def index
+    @unarchived_lists = List.where(archived: false)
+    @archived_lists = List.where(archived: true)
   end
 
   def show

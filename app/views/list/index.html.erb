@@ -1,2 +1,17 @@
 <h1>All Lists</h1>
 
+<% @unarchived_lists.each do |list| %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Archived</th>
+    </tr>
+    <tr>
+      <td id="list-title"><%= list.title %></td>
+      <td id="archive-status">
+        <input type="checkbox" value="Archived">
+      </td>
+    </tr>
+  </table>
+<% end %>
+
