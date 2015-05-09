@@ -22,10 +22,10 @@ RSpec.describe "the list tasks index page" do
     @good_list.tasks << @bad_task
   end
 
-  it "displays a list of all of the incomplete
+  xit "displays a list of all of the incomplete
   tasks belonging to a list" do
     visit "/"
-    click_link_or_button(@bad_list.title)
+    first(:link, @bad_list.title).click
 
     expect(page).to have_content(@bad_task.title)
     expect(page).to have_content(@bad_task.description)
