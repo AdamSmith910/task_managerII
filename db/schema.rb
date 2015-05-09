@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20150509091111) do
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "status"
+    t.string   "status",      default: "incomplete"
     t.datetime "due_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "list_id"
   end
 
