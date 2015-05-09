@@ -13,7 +13,7 @@ RSpec.describe "the show list page" do
     expect(page).to have_content("Tasks")
   end
 
-  xit "allows user to delete list" do
+  it "allows user to delete list" do
     visit "/"
     click_link_or_button(@list.title)
     click_link_or_button("Delete list")
