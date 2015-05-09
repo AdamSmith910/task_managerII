@@ -10,5 +10,5 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe ListHelper, type: :helper do
+RSpec.describe ListsHelper, type: :helper do
 end

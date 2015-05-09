@@ -16,7 +16,7 @@ class ListsController < ApplicationController
 
     if @list.save
       flash[:notice] = "List successfully created"
-      redirect_to list_index_path
+      redirect_to lists_path
     else
       flash[:error] = "Unable to create list"
       render :new
