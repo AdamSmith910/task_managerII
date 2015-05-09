@@ -31,4 +31,12 @@ RSpec.describe "the lists index page" do
       expect(page).to_not have_content("Good List")
     end
   end
+
+  it "has an option to create a new list" do
+    visit "/"
+
+    click_link_or_button("Create new list")
+
+    expect(page).to have_content("New List")
+  end
 end
