@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: task_managerII 
+  database: task_managerII
