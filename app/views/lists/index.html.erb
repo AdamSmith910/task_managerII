@@ -7,7 +7,7 @@
       <th>Archived</th>
     </tr>
     <tr>
-      <td id="list-title"><%= list.title %></td>
+      <td id="list-title"><%= link_to list.title, list_path(id: list.id) %></td>
       <td id="archive-status">
         <input type="checkbox" value="Archived">
       </td>
