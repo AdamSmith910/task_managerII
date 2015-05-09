@@ -1,11 +1,12 @@
 <h1>All Lists</h1>
 
-<% @lists.each do |list| %>
+
   <table>
     <tr>
       <th>Title</th>
       <th>Archived</th>
     </tr>
+    <% @lists.each do |list| %>
     <tr>
       <td id="list-title"><%= link_to list.title, list_path(id: list.id) %></td>
       <td id="archive-status">
