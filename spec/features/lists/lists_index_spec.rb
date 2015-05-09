@@ -19,7 +19,7 @@ RSpec.describe "the lists index page" do
     expect(page).to have_css("input[type='checkbox']")
   end
 
-  it "does not display archived lists" do
+  xit "does not display archived lists" do
     visit "/"
 
     expect(page).to_not have_content(@good_list.title)
@@ -34,7 +34,7 @@ RSpec.describe "the lists index page" do
     expect(page).to_not have_content(@bad_list.title)
   end
 
-  it "allows user to navigate back and forth
+  xit "allows user to navigate back and forth
   between archived and unarchived lists" do
     visit "/"
     click_link_or_button("Archived Lists")
