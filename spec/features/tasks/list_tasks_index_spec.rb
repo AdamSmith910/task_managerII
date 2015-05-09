@@ -12,7 +12,7 @@ RSpec.describe "the list tasks index page" do
                         due_date: 01-01-2018)
 
     @bad_list = List.create(title: "Bad List")
-    @good_list = List.create(tite: "Good List")
+    @good_list = List.create(title: "Good List")
     
     @bad_list.tasks << @bad_task
     @bad_list.tasks << @good_task

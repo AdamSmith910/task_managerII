@@ -1,20 +1,20 @@
 <h1>All Lists</h1>
 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Archived</th>
+  </tr>
+  <% @lists.each do |list| %>
+  <tr>
+    <td id="list-title"><%= link_to list.title, list_path(id: list.id) %></td>
+    <td id="archive-status">
+      <input type="checkbox" value="Archived">
+    </td>
+  </tr>
+  <% end %>
+</table>
 
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Archived</th>
-    </tr>
-    <% @lists.each do |list| %>
-    <tr>
-      <td id="list-title"><%= link_to list.title, list_path(id: list.id) %></td>
-      <td id="archive-status">
-        <input type="checkbox" value="Archived">
-      </td>
-    </tr>
-  </table>
-<% end %>
 
 
 <p><%= link_to "Unarchived Lists", lists_path %></p>
