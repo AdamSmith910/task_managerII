@@ -1,7 +1,10 @@
 class ListsController < ApplicationController
   def index
-    @unarchived_lists = List.where(archived: false)
-    @archived_lists = List.where(archived: true)
+    if params[:archived].present?
+      @lists = List.where(archived: true)
+    else
+      @lists = List.where(archived: false)
+    end
   end
 
   def show

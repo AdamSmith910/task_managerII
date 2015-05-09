@@ -1,6 +1,6 @@
 <h1>All Lists</h1>
 
-<% @unarchived_lists.each do |list| %>
+<% @lists.each do |list| %>
   <table>
     <tr>
       <th>Title</th>
@@ -14,6 +14,11 @@
     </tr>
   </table>
 <% end %>
+
+
+<p><%= link_to "Unarchived Lists", lists_path %></p>
+<p><%= link_to "Archived Lists", lists_path(archived: true) %></p>
+
 
 <p><%= link_to "Create new list", new_list_path %></p>
 

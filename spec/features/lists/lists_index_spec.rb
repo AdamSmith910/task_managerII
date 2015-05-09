@@ -15,20 +15,32 @@ RSpec.describe "the lists index page" do
   it "displays all unarchived lists" do
     visit "/"
 
-    within("#list-title") do
-      expect(page).to have_content(@bad_list.title)
-    end
-
-    within("#archive-status") do
-      expect(page).to have_css("input[type='checkbox']")
-    end
+    expect(page).to have_content(@bad_list.title)
+    expect(page).to have_css("input[type='checkbox']")
   end
 
   it "does not display archived lists" do
     visit "/"
 
-    within("#list-title") do
-      expect(page).to_not have_content(@good_list.title)
-    end
+    expect(page).to_not have_content(@good_list.title)
+  end
+
+  it "allows user to see archived lists
+  if they click the 'Archived Lists' link" do
+    visit "/"
+    click_link_or_button("Archived Lists")
+
+    expect(page).to have_content(@good_list.title)
+    expect(page).to_not have_content(@bad_list.title)
+  end
+
+  it "allows user to navigate back and forth
+  between archived and unarchived lists" do
+    visit "/"
+    click_link_or_button("Archived Lists")
+    click_link_or_button("Unarchived Lists")
+
+    expect(page).to have_content(@bad_list.title)
+    expect(page).to_not have_content(@good_list.title)
   end
 end
