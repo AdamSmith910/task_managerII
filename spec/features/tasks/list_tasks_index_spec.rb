@@ -5,7 +5,8 @@ RSpec.describe "the list tasks index page" do
     @bad_task = Task.create(title: "Bad Task",
                         description: "A stupid task",
                         status: "incomplete",
-                        due_date: 01-01-2018)
+                        due_date: 01-01-2018
+                        )
     @good_task = Task.create(title: "Bad Task",
                         description: "A more stupid task",
                         status: "complete",
@@ -18,7 +19,7 @@ RSpec.describe "the list tasks index page" do
     @bad_list.tasks << @good_task
 
     @good_list.tasks << @good_task
-    @good_task.tasks << @bad_task
+    @good_list.tasks << @bad_task
   end
 
   it "displays a list of all of the incomplete
