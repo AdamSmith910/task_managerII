@@ -43,7 +43,8 @@ class TasksController < ApplicationController
                                  :description,
                                  :status,
                                  :due_date,
-                                 :list_id)
+                                 :list_id,
+                                 :tag_ids => [])
   end
 
   def find_list
