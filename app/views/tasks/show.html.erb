@@ -1,5 +1,11 @@
 <h1><%= @task.title %></h1>
-
+<h3>Description:  <%= @task.description %></h3>
+<h3>Status:  <%= @task.status %></h3>
+<h3>Tags: 
+  <% @task.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</h3>
 
 <p><%= link_to "Edit Task", edit_list_task_path(list_id: @task.list_id, id: @task.id) %></p>
 

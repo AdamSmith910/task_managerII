@@ -13,6 +13,7 @@ RSpec.describe "the new task page" do
 
     fill_in "Title", with: task_title
     fill_in "Description", with: task_description
+    
     click_link_or_button("Submit")
 
     expect(page).to have_content(task_title)
