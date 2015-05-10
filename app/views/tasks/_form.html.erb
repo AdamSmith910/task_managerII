@@ -1,0 +1,16 @@
+<%= form_for([@list, @task]) do |f| %>
+<div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :due_date %>
+  <%= date_select(:task, :due_date) %>
+
+  <%= f.hidden_field(:list_id, value: @list.id) %>
+
+  <%= f.submit "Submit" %>
+</div>
+<% end %>

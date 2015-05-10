@@ -9,6 +9,13 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @task = Task.new
+
+    if params[:completed].present?
+      @tasks = @list.tasks.where(status: "complete")
+    else
+      @tasks = @list.tasks.where(status: "incomplete")
+    end
   end
 
   def new
