@@ -8,9 +8,14 @@ RSpec.describe "the new task page" do
   it "creates a new task for the list" do
     visit "/"
     click_link_or_button(@list.title)
-    click_link_or_button("Create new task")
+    task_title = "Bad Task"
+    task_description = "This is stupid"
 
-    fill_in "Title", with: "Bad Task"
-    fill_in "Description", with: "Stupid"
-    fill_in "Due Date", with: 
+    fill_in "Title", with: task_title
+    fill_in "Description", with: task_description
+    click_link_or_button("Submit")
+
+    expect(page).to have_content(task_title)
+    expect(page).to have_content(task_description)
+  end
 end
