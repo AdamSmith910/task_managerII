@@ -41,8 +41,15 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update_attributes(list_params)
-      flash[:notice] = "List successfully updated"
-      redirect_to lists_path
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "List successfully updated"
+          redirect_to lists_path
+        end
+        format.json do
+          render json: @list
+        end
+      end
     else
       flash[:error] = "Unable to update list"
       render :edit

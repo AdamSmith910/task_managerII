@@ -44,7 +44,7 @@ var markListUnarchived = function(listId) {
     success: hideList(listId),
     data: {
       list: {
-        archived: true
+        archived: false
       }
     }
   });
@@ -52,4 +52,8 @@ var markListUnarchived = function(listId) {
 
 var hideTask = function(taskId) {
   $('#task-row-' + taskId).hide();
+};
+
+var hideList = function(listId) {
+  $('#list-row-' + listId).hide();
 };

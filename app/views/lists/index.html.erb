@@ -3,13 +3,23 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Archived</th>
+    <% if params[:archived].present? %>
+    <th>Unarchive</th>
+    <% else %>
+    <th>Archive</th>
+    <% end %>
   </tr>
   <% @lists.each do |list| %>
-  <tr>
+  <tr id="list-row-<%= list.id %>">
     <td id="list-title"><%= link_to list.title, list_path(id: list.id) %></td>
     <td id="archive-status">
-      <input type="checkbox" value="Archived">
+      <% if list.archived == false %>
+        <input type="checkbox" class="list-checkbox" id="<%= list.id%>" value="Completed"
+        onClick="markListArchived(<%= list.id %>);">
+      <% else %>
+        <input type="checkbox" class="list-checkbox" id="<%= list.id%>" value="Not-Completed"
+        onClick="markListUnarchived(<%= list.id %>);">
+      <% end %>
     </td>
   </tr>
   <% end %>
