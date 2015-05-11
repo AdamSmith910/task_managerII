@@ -24,6 +24,8 @@
             <input type="checkbox" class="task-checkbox" id="<%= task.id%>" value="Not-Completed"
             onClick="markTaskIncomplete(<%= @list.id %>, <%= task.id %>);">
           <% end %>
+        </td>
+        <td><%= task.due_date %></td>
       </tr>
     <% end %>
   </tbody>
