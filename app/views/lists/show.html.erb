@@ -26,6 +26,9 @@
           <% end %>
         </td>
         <td><%= task.due_date %></td>
+        <% task.tags.each do |tag| %>
+        <td><%= tag.name %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
