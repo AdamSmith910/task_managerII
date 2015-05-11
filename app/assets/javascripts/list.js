@@ -1,3 +1,7 @@
+$(document).ready(function () {
+  $('#tasks-table').DataTable();
+});
+
 var markTaskComplete = function(listId, taskId) {
   $.ajax('/lists/' + listId + '/tasks/' + taskId + '.json', {
     method: 'PUT',
