@@ -10,16 +10,12 @@
     <th>Tags</th>
   </tr>
   <% @tasks.each do |task| %>
-  <tr>
+  <tr id="task-row-<%= task.id %>">
     <td><%= link_to task.title, list_task_path(list_id: @list.id, id: task.id) %></td>
     <td><%= task.description %></td>
-    <td id="task-status"><%= task.status %>
-      <input type="checkbox" value="Completed">
-    </td>
-    <td><%= task.due_date %></td>
-    <% task.tags.each do |tag| %>
-      <td><%= tag.name %></td>
-    <% end %>
+    <td><%= task.status %>
+      <input type="checkbox" class="task-checkbox" id="<%= task.id%>" value="Completed"
+      onClick="$.ajax('/lists/<%= @list.id %>/tasks/' + this.id, { method: 'PUT', data: { task: { status: 'complete'}}}); $('#task-row-' + this.id).hide();">
   </tr>
   <% end %>
 </table>
