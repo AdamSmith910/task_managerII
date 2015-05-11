@@ -8,4 +8,5 @@
 </h3>
 
 <p><%= link_to "Edit Task", edit_list_task_path(list_id: @task.list_id, id: @task.id) %></p>
+<p><%= link_to "All tasks", list_path(id: @task.list_id) %></p>
 
