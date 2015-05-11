@@ -14,6 +14,18 @@ var markTaskComplete = function(listId, taskId) {
   });
 };
 
+var markTaskIncomplete = function(listId, taskId) {
+  $.ajax('/lists/' + listId + '/tasks/' + taskId + '.json', {
+    method: 'PUT',
+    success: hideTask(taskId),
+    data: {
+      task: {
+        status: 'incomplete'
+      }
+    }
+  });
+};
+
 var hideTask = function(taskId) {
   $('#task-row-' + taskId).hide();
 };

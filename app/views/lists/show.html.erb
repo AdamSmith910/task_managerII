@@ -17,8 +17,13 @@
         <td><%= link_to task.title, list_task_path(list_id: @list.id, id: task.id) %></td>
         <td><%= task.description %></td>
         <td><%= task.status %>
-          <input type="checkbox" class="task-checkbox" id="<%= task.id%>" value="Completed"
-          onClick="markTaskComplete(<%= @list.id %>, <%= task.id %>);">
+          <% if task.status == "incomplete" %>
+            <input type="checkbox" class="task-checkbox" id="<%= task.id%>" value="Completed"
+            onClick="markTaskComplete(<%= @list.id %>, <%= task.id %>);">
+          <% else %>
+            <input type="checkbox" class="task-checkbox" id="<%= task.id%>" value="Not-Completed"
+            onClick="markTaskIncomplete(<%= @list.id %>, <%= task.id %>);">
+          <% end %>
       </tr>
     <% end %>
   </tbody>
