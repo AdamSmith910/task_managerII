@@ -28,8 +28,15 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
-      flash[:notice] = "Task successfully updated"
-      redirect_to list_path(id: @list.id)
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Task successfully updated"
+          redirect_to list_path(id: @list.id)
+        end
+        format.json do
+          render json: @task
+        end
+      end
     else
       flash[:error] = "Unable to update task"
       render :new

@@ -15,7 +15,7 @@
     <td><%= task.description %></td>
     <td><%= task.status %>
       <input type="checkbox" class="task-checkbox" id="<%= task.id%>" value="Completed"
-      onClick="$.ajax('/lists/<%= @list.id %>/tasks/' + this.id, { method: 'PUT', data: { task: { status: 'complete'}}}); $('#task-row-' + this.id).hide();">
+      onClick="markTaskComplete(<%= @list.id %>, <%= task.id %>);">
   </tr>
   <% end %>
 </table>
@@ -33,7 +33,7 @@
   <%= date_select(:task, :due_date) %>
 
   <%= f.label :tags %>
-  <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, 
+  <%= f.collection_select :tag_ids, Tag.all, :id, :name, {},
   {:multiple => true} %>
 
   <%= f.hidden_field(:list_id, value: @list.id) %>

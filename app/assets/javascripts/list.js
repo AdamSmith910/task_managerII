@@ -1,6 +1,15 @@
-$(".task-checkbox").change(function() {
-  if (this.checked) {
-    alert("Hello word" + this.id); 
-  }
-});
+var markTaskComplete = function(listId, taskId) {
+  $.ajax('/lists/' + listId + '/tasks/' + taskId + '.json', {
+    method: 'PUT',
+    success: hideTask(taskId),
+    data: {
+      task: {
+        status: 'complete'
+      }
+    }
+  });
+};
 
+var hideTask = function(taskId) {
+  $('#task-row-' + taskId).hide();
+};
